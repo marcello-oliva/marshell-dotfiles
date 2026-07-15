@@ -40,6 +40,9 @@ play = [
 open = [
 	{ run = "xdg-open %s",    desc = "Open", for = "linux" },
 ]
+execute = [
+	{ run = "~/.config/yazi/scripts/script-executor/script-executor.sh %s", desc = "Execute", for = "unix" },
+]
 reveal = [
 	{ run = "xdg-open %d",         desc = "Reveal", for = "linux" },
 ]
@@ -59,7 +62,7 @@ rules = [
 	{ mime = "text/html", use = [ "edit", "open" ] },
 	{ mime = "application/{json,ndjson,javascript,wine-extension-ini}", use = [ "edit", "open", "reveal" ] },
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
-	{ mime = "text/*", use = [ "edit", "reveal" ] },
+	{ mime = "text/*", use = [ "edit", "execute", "reveal" ] },
 	# Multimedia
 	{ mime = "image/*", use = [ "open", "play", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "open", "play", "reveal" ] },

@@ -2,9 +2,9 @@
 set -Eeuo pipefail
 
 # ──── Configuration ─────────────────────────────────────────────────
-readonly SCRIPT_DIR="$HOME/.config/yazi/scripts"
+readonly SCRIPT_DIR="$HOME/.config/yazi/scripts/script-executor"
 
-source "${SCRIPT_DIR}/lib/costants.sh"
+source "${SCRIPT_DIR}/lib/constants.sh"
 source "${SCRIPT_DIR}/lib/logger.sh"
 source "${SCRIPT_DIR}/lib/validation.sh"
 source "${SCRIPT_DIR}/lib/executor.sh"

@@ -1,33 +1,30 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 
-TARGET="${1:-}"
+# ──── Configuration ─────────────────────────────────────────────────
+readonly SCRIPT_DIR="$HOME/.config/yazi/scripts/editor-handler"
 
-TERMINAL="kitty"
-EDITOR="zeditor"
-ROOT_EDITOR="$HOME/.local/bin/polkit-root-edit"
+source "${SCRIPT_DIR}/lib/constants.sh"
+source "${SCRIPT_DIR}/lib/logger.sh"
+source "${SCRIPT_DIR}/lib/validation.sh"
+source "${SCRIPT_DIR}/lib/terminal.sh"
+source "${SCRIPT_DIR}/lib/privileged-editor.sh"
+source "${SCRIPT_DIR}/lib/editor.sh"
 
-open_dir() {
-    if "$TERMINAL" @ ls >/dev/null 2>&1; then
-        "$TERMINAL" @ launch --type=tab --cwd="$TARGET" -- "$SHELL"
+# ──── Main Function ─────────────────────────────────────────────────
+main() {
+    validate::arguments "$@"
+    local target="$1"
+    validate::target "$target"
+
+    if [[ -d "$target" ]]; then
+        terminal::open_directory "$target"
+    elif [[ -f "$target" ]]; then
+        editor::open_file "$target"
     else
-        "$TERMINAL" --detach --directory "$TARGET"
+        logger::error "Invalid target: $target"
+        exit "$EXIT_TARGET_NOT_FOUND"
     fi
 }
 
-open_file() {
-    if [[ -w "$TARGET" ]]; then
-        exec "$EDITOR" "$TARGET"
-    else
-        exec "$ROOT_EDITOR" "$TARGET"
-    fi
-}
-
-if [[ -d "$TARGET" ]]; then
-    open_dir
-elif [[ -f "$TARGET" ]]; then
-    open_file
-else
-    echo "invalid target"
-    exit 1
-fi
+main "$@"

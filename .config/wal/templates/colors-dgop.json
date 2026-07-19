@@ -1,0 +1,49 @@
+{
+  "ui": {
+    "border_primary": "{color5}",
+    "border_secondary": "{color13}",
+    "header_background": "{color4}",
+    "header_text": "{foreground}",
+    "footer_background": "{color0}",
+    "footer_text": "{color8}",
+    "text_primary": "{foreground}",
+    "text_secondary": "{color7}",
+    "text_accent": "{color5}",
+    "selection_background": "{color4}",
+    "selection_text": "{foreground}"
+  },
+  "charts": {
+    "network_download": "{color13}",
+    "network_upload": "{color5}",
+    "network_line": "{color4}",
+    "cpu_core_low": "{color5}",
+    "cpu_core_medium": "{color13}",
+    "cpu_core_high": "{color6}",
+    "disk_read": "{color13}",
+    "disk_write": "{color5}"
+  },
+  "progress_bars": {
+    "memory_low": "{color5}",
+    "memory_medium": "{color13}",
+    "memory_high": "{color6}",
+    "disk_low": "{color5}",
+    "disk_medium": "{color13}",
+    "disk_high": "{color6}",
+    "cpu_low": "{color5}",
+    "cpu_medium": "{color13}",
+    "cpu_high": "{color6}",
+    "progress_background": "{color8}"
+  },
+  "temperature": {
+    "cold": "{color5}",
+    "warm": "{color13}",
+    "hot": "{color6}",
+    "danger": "{color9}"
+  },
+  "status": {
+    "success": "#22C55E",
+    "warning": "#F59E0B",
+    "error": "#EF4444",
+    "info": "#3B82F6"
+  }
+}

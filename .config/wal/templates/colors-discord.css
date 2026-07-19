@@ -1,0 +1,256 @@
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    /* font options */
+    --font: 'figtree', sans-serif;
+    --code-font: '';
+    font-weight: 400;
+
+    /* sizes */
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 1px;
+
+    /* animation/transition options */
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+    --border-hover-transition: 0.2s ease;
+
+    /* top bar options */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    /* window controls */
+    --custom-window-controls: on;
+    --window-control-size: 14px;
+
+    /* dms button options */
+    --custom-dms-icon: custom;
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-subtle);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
+
+    /* background image options */
+    --background-image: off;
+    --background-image-url: url('');
+
+    /* transparency/blur options */
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    /* chatbar options */
+    --custom-chatbar: off;
+    --chatbar-height: 47px;
+
+    /* other options */
+    --small-user-panel: on;
+}
+
+/* color options */
+:root {
+    --colors: on;
+
+    /* ── Text colors ─────────────────────────────────────────────────────── */
+    --text-0: var(--bg-4); /* text on colored elements — inherits bg, unchanged */
+    --text-1: {color15}; /* other normally white text — brightest foreground */
+    --text-2: color-mix(in srgb, {color7} 85%, {background}); /* headings and important text — ~70% lightness equivalent */
+    --text-3: color-mix(in srgb, {color7} 75%, {background}); /* normal text */
+    --text-4: color-mix(in srgb, {color8} 80%, {background}); /* icon buttons and channels — muted */
+    --text-5: color-mix(in srgb, {color8} 50%, {background}); /* muted channels/chats and timestamps — darkest text */
+
+    /* ── Background colors ───────────────────────────────────────────────── */
+
+    --bg-1: color-mix(in srgb, {color8} 25%, {background}); /* dark buttons when clicked — lightest bg step */
+    --bg-2: color-mix(in srgb, {color8} 18%, {background}); /* dark buttons */
+    --bg-3: color-mix(in srgb, {color8} 12%, {background}); /* spacing, secondary elements */
+    --bg-4: {background}; /* main background color */
+    --hover:   color-mix(in srgb, {color7} 10%, transparent); /* channels and buttons when hovered — original: hsla(..., 0.1) */
+    --active:  color-mix(in srgb, {color7} 20%, transparent); /* channels and buttons when clicked — original: hsla(..., 0.2) */
+    --active-2: color-mix(in srgb, {color7} 30%, transparent); /* extra state for transparent buttons — original: hsla(..., 0.3) */
+    --message-hover: hsla(0, 0%, 0%, 0.1); /* messages when hovered */
+
+    /* ── Accent colors ───────────────────────────────────────────────────── */
+    --accent-1: color-mix(in srgb, {color12} 100%, white 15%); /* links and accent text — brightest */
+    --accent-2: {color12}; /* small accent elements */
+    --accent-3: color-mix(in srgb, {color12} 85%, black); /* accent buttons */
+    --accent-4: color-mix(in srgb, {color12} 70%, black); /* accent buttons when hovered */
+    --accent-5: color-mix(in srgb, {color12} 55%, black); /* accent buttons when clicked */
+    --accent-new: var(--accent-2); /* stuff normally red like mute/deafen — kept referencing accent */
+    --mention: linear-gradient(to right, color-mix(in hsl, {color12}, transparent 90%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, {color12}, transparent 95%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
+
+    /* ── Status indicator colors ─────────────────────────────────────────── */
+    --online: {color10}; /* green-2 equivalent */
+    --dnd: {color9}; /* red-2 equivalent */
+    --idle: {color11}; /* yellow-2 equivalent */
+    --streaming: {color13}; /* purple-2 equivalent */
+    --offline:   var(--text-4); /* muted — kept referencing text-4 */
+
+    /* ── Border colors ───────────────────────────────────────────────────── */
+    --border-light:  var(--hover);
+    --border:        var(--active);
+    --border-hover:  var(--active);
+    --button-border: hsl(0, 0%, 100%, 0.1); /* neutral white border */
+
+    /* ── Base color families ─────────────────────────────────────────────── */
+    /* red family → color1 */
+    --red-1: color-mix(in srgb, {color1}  100%, black 0%);
+    --red-2: color-mix(in srgb, {color1}  92%,  black 8%);
+    --red-3: color-mix(in srgb, {color1}  84%,  black 16%);
+    --red-4: color-mix(in srgb, {color1}  76%,  black 24%);
+    --red-5: color-mix(in srgb, {color1}  68%,  black 32%);
+
+    /* green family → color2 */
+    --green-1: color-mix(in srgb, {color2}  100%, black 0%);
+    --green-2: color-mix(in srgb, {color2}  92%,  black 8%);
+    --green-3: color-mix(in srgb, {color2}  84%,  black 16%);
+    --green-4: color-mix(in srgb, {color2}  76%,  black 24%);
+    --green-5: color-mix(in srgb, {color2}  68%,  black 32%);
+
+    /* blue family → color4 */
+    --blue-1: color-mix(in srgb, {color4}  100%, black 0%);
+    --blue-2: color-mix(in srgb, {color4}  92%,  black 8%);
+    --blue-3: color-mix(in srgb, {color4}  84%,  black 16%);
+    --blue-4: color-mix(in srgb, {color4}  76%,  black 24%);
+    --blue-5: color-mix(in srgb, {color4}  68%,  black 32%);
+
+    /* yellow family → color3 */
+    --yellow-1: color-mix(in srgb, {color3}  100%, black 0%);
+    --yellow-2: color-mix(in srgb, {color3}  92%,  black 8%);
+    --yellow-3: color-mix(in srgb, {color3}  84%,  black 16%);
+    --yellow-4: color-mix(in srgb, {color3}  76%,  black 24%);
+    --yellow-5: color-mix(in srgb, {color3}  68%,  black 32%);
+
+    /* purple family → color5 */
+    --purple-1: color-mix(in srgb, {color5}  100%, black 0%);
+    --purple-2: color-mix(in srgb, {color5}  92%,  black 8%);
+    --purple-3: color-mix(in srgb, {color5}  84%,  black 16%);
+    --purple-4: color-mix(in srgb, {color5}  76%,  black 24%);
+    --purple-5: color-mix(in srgb, {color5}  68%,  black 32%);
+}
+
+/*
+ * ── Discord internal variables (from pywal-vencord by Zeph) ──────────────
+ * These override Discord's internal CSS variables directly, ensuring that
+ * elements not covered by midnight.css also follow the pywal palette.
+ * ─────────────────────────────────────────────────────────────────────────
+*/
+* {
+    /* ── Background layers ───────────────────────────────────────────────── */
+    --background-primary:             {background};
+    --background-secondary:           {background};
+    --background-tertiary:            {background};
+    --background-primary-alt:         {background};
+    --background-secondary-alt:       {background};
+    --background-tertiary-alt:        {background};
+    --channeltextarea-background:     {background};
+    --custom-channel-members-bg:      {background};
+    --profile-gradient-primary-color: {background};
+    --profile-gradient-secondary-color: {background};
+    --__header-bar-background:        {background} !important;
+    --bg-base-tertiary:               {background};
+    --primary-630:                    {background};
+
+    /* slightly darker — 20% darker steps */
+    --card-primary-bg:               color-mix(in srgb, {background}, black 20%);
+    --input-background:              color-mix(in srgb, {background}, black 20%);
+    --autocomplete-bg:               color-mix(in srgb, {background}, black 20%);
+    --background-nested-floating:    color-mix(in srgb, {background}, black 20%);
+    --background-floating:           color-mix(in srgb, {background}, black 20%);
+    --scrollbar-auto-track:          color-mix(in srgb, {background}, black 20%);
+    --scrollbar-thin-track:          color-mix(in srgb, {background}, black 20%);
+    --border-subtle:                 color-mix(in srgb, {background}, black 20%);
+    --background-base-lowest:        color-mix(in srgb, {background}, black 20%);
+    --background-surface-high:       color-mix(in srgb, {background}, black 20%);
+
+    /* 30% darker */
+    --button-secondary-background:   color-mix(in srgb, {background}, black 30%);
+    --background-surface-higher:     color-mix(in srgb, {background}, black 30%);
+
+    /* 35% darker */
+    --background-base-lower:         color-mix(in srgb, {background}, black 35%);
+
+    /* 40% darker */
+    --background-message-hover:           color-mix(in srgb, {background}, black 40%);
+    --button-secondary-background-hover:  color-mix(in srgb, {background}, black 40%);
+    --background-base-low:                color-mix(in srgb, {background}, black 40%);
+    --background-surface-highest:         color-mix(in srgb, {background}, black 40%);
+
+    /* 45% darker */
+    --chat-background-default:       color-mix(in srgb, {background}, black 45%);
+
+    /* 60% darker */
+    --button-secondary-background-active: color-mix(in srgb, {background}, black 60%);
+
+    /* ── Muted / secondary elements → color8 (bright black / subtext) ───── */
+    --scrollbar-auto-thumb:          {color8};
+    --scrollbar-thin-thumb:          {color8};
+    --interactive-muted:             {color8};
+    --text-muted:                    {color8};
+    --background-modifier-hover:     color-mix(in srgb, {color8}, black 40%);
+    --background-modifier-active:    color-mix(in srgb, {color8}, black 20%);
+    --background-modifier-accent:    {color8};
+    --background-accent:             {color8};
+    --input-border:                  {color8};
+    --border-normal:                 {color8};
+    --icon-secondary:                {color8};
+    --icon-tertiary:                 {color8};
+    --channel-icon:                  {color8};
+    --channels-default:              {color8};
+    --header-primary:                {color8};
+    --__lottieIconColor:             {color8};
+    --interactive-normal:            {color8};
+
+    /* ── Selected state → color2 (green) ────────────────────────────────── */
+    --red-400:                       {color2};
+    --background-modifier-selected:  {color2};
+    --notice-background-positive:    color-mix(in srgb, {color2}, black 75%);
+    --notice-text-positive:          {color2};
+
+    /* ── Danger/warning → color3 (yellow) ───────────────────────────────── */
+    --status-danger:                      {color3};
+    --button-outline-danger-border:       {color3};
+    --button-outline-danger-text:         {color3};
+    --button-danger-background:           {color3};
+    --yellow-300:                         {color3};
+
+    /* ── Brand/accent → color4 (blue) ───────────────────────────────────── */
+    --brand-experiment:              {color4};
+    --brand-experiment-360:          {color4};
+    --brand-experiment-500:          {color4};
+    --profile-gradient-button-color: {color4};
+    --green-360:                     {color4};
+
+    /* ── Normal text → color7 (white) ───────────────────────────────────── */
+    --text-normal:                   {color7};
+    --interactive-active:            {color7};
+}
+
+/* ── Status indicator SVG overrides ──────────────────────────────── */
+/* dnd → color1 (red) */
+rect[fill="#d83a41"] {
+    fill: {color1} !important;
+}
+
+/* idle → color3 (yellow) */
+rect[fill="#cc954c"] {
+    fill: {color3} !important;
+}
+
+/* online → color2 (green) */
+rect[fill="#40a258"] {
+    fill: {color2} !important;
+}

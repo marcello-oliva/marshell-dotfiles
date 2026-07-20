@@ -2,17 +2,7 @@
 set -euo pipefail
 
 # ──── Configuration ────────────────────────────────────────────────────────
-readonly -a WAL_DEPLOY_APP_NAMES=(
-    "dgop"
-)
-
-readonly -a WAL_DEPLOY_CACHE_FILES=(
-    "$HOME/.cache/wal/colors-dgop.json"
-)
-
-readonly -a WAL_DEPLOY_TARGET_LINKS=(
-    "$HOME/.config/dgop/colors.json"
-)
+source "config/constants.sh"
 
 # ──── Functions ────────────────────────────────────────────────────────
 link_application() {

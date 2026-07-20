@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
-# ──── Configuration ────────────────────────────────────────────────────────
-source "config/constants.sh"
+[[ -n "${WAL_DEPLOY_FUNCTIONS_LOADED:-}" ]] && return 0
+readonly WAL_DEPLOY_FUNCTIONS_LOADED=1
 
-# ──── Functions ────────────────────────────────────────────────────────
-link_application() {
+if [[ -z "${WAL_DEPLOY_CONFIG_LOADED:-}" ]]; then
+    echo "[ERR] wal-deploy.functions.sh requires wal-deploy.config.sh — check sourcing order" >&2
+    return 1 2>/dev/null || exit 1
+fi
+
+wal_deploy::link_one() {
     local app_name="$1"
     local cache_file="$2"
     local target_link="$3"
@@ -22,7 +25,7 @@ link_application() {
     echo "[OK] ${app_name}: ${target_link} -> ${cache_file}"
 }
 
-link_all_programs() {
+wal_deploy::link_all() {
     local count="${#WAL_DEPLOY_APP_NAMES[@]}"
 
     if [[ "${#WAL_DEPLOY_CACHE_FILES[@]}" -ne "$count" || "${#WAL_DEPLOY_TARGET_LINKS[@]}" -ne "$count" ]]; then
@@ -32,21 +35,21 @@ link_all_programs() {
 
     local i
     for (( i = 0; i < count; i++ )); do
-        link_application \
+        wal_deploy::link_one \
             "${WAL_DEPLOY_APP_NAMES[i]}" \
             "${WAL_DEPLOY_CACHE_FILES[i]}" \
             "${WAL_DEPLOY_TARGET_LINKS[i]}"
     done
 }
 
-link_user_program() {
+wal_deploy::link_by_name() {
     local wanted="$1"
     local count="${#WAL_DEPLOY_APP_NAMES[@]}"
     local i
 
     for (( i = 0; i < count; i++ )); do
         if [[ "${WAL_DEPLOY_APP_NAMES[i]}" == "$wanted" ]]; then
-            link_application \
+            wal_deploy::link_one \
                 "${WAL_DEPLOY_APP_NAMES[i]}" \
                 "${WAL_DEPLOY_CACHE_FILES[i]}" \
                 "${WAL_DEPLOY_TARGET_LINKS[i]}"
@@ -57,13 +60,3 @@ link_user_program() {
     echo "[ERR] Application '${wanted}' not found in WAL_DEPLOY_APP_NAMES" >&2
     return 1
 }
-
-
-# ──── Entrypoint ────────────────────────────────────────────────────────
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    if [[ $# -ge 1 ]]; then
-        link_user_program "$1"
-    else
-        link_all_programs
-    fi
-fi

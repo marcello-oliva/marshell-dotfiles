@@ -15,17 +15,20 @@ Explain what problem this solves or what motivated this update.
 Select the affected area(s):
 -->
 
-- [ ] Hyprland
-- [ ] Waybar
-- [ ] Kitty
-- [ ] Fish
-- [ ] Rofi
-- [ ] Neovim / Editor
-- [ ] Scripts
+- [ ] Desktop Environment
+- [ ] Terminal & Shell
+- [ ] CLI Applications
+- [ ] Editor / IDE
+- [ ] Media Applications
 - [ ] Themes
+- [ ] System Configuration
+- [ ] Packages
+- [ ] Web Applications
+- [ ] Git / Github
+- [ ] Scripts
 - [ ] Installer
 - [ ] Documentation
-- [ ] Other:
+- [ ] Assets
 
 ---
 
@@ -72,11 +75,14 @@ Describe how the changes were verified.
 - [ ] Fresh installation tested
 - [ ] No regression detected
 
-Testing notes:
+**Environment:**
 
-Environment:
-Steps performed:
-Result:
+**Steps performed:**
+<!--
+Describe the testing process using an enumerated lists.
+-->
+
+**Result:**
 
 ---
 

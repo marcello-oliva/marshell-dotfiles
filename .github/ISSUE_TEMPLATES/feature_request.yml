@@ -1,0 +1,33 @@
+name: Feature request
+description: Suggest an idea or improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an improvement.
+
+        Please describe the idea and its purpose.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the feature and why it would be useful.
+      placeholder: |
+        Explain the problem this feature would solve and your proposed idea.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any additional information.
+      placeholder: |
+        Examples, screenshots, references, or other details.
+    validations:
+      required: false

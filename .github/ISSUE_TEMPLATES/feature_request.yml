@@ -1,0 +1,100 @@
+name: Feature request
+description: Propose a new feature or improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an improvement.
+
+        Feature requests should explain the motivation, expected value, and possible implementation approach.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area(s)
+      description: Select every area this feature would touch.
+      multiple: true
+      options:
+        - Desktop Environment
+        - Terminal & Shell
+        - CLI Applications
+        - Editor / IDE
+        - Media Applications
+        - Themes
+        - System Configuration
+        - Packages
+        - Web Applications
+        - Git / Github
+        - Scripts
+        - Installer
+        - Documentation
+        - Assets
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Explain the problem, limitation, or use case behind this request.
+      placeholder: |
+        What problem does this feature solve?
+        Who would benefit from it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: Describe the desired behaviour and possible implementation.
+      placeholder: |
+        Explain how the feature should work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe existing solutions, workarounds, or alternative approaches.
+      placeholder: |
+        Explain why current alternatives are insufficient.
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected impact
+      description: Describe how this change would improve the project.
+      placeholder: |
+        Examples:
+        - Improves usability
+        - Reduces complexity
+        - Adds missing functionality
+        - Improves performance
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add mockups, references, examples, or technical considerations.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues/PRs to make sure this hasn't already been requested.
+          required: true
+        - label: I'm willing to help implement this, if needed.
+          required: false

@@ -1,0 +1,148 @@
+name: Bug report
+description: Report a reproducible problem or unexpected behaviour
+title: "[Bug]: "
+labels:
+  - bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug.
+
+        A detailed report helps us reproduce, investigate, and resolve issues faster.
+        Please provide as much relevant information as possible.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Provide a concise overview of the issue.
+      placeholder: |
+        Briefly describe the problem and its impact.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area(s)
+      description: Select every area this bug affects.
+      multiple: true
+      options:
+        - Desktop Environment
+        - Terminal & Shell
+        - CLI Applications
+        - Editor / IDE
+        - Media Applications
+        - Themes
+        - System Configuration
+        - Packages
+        - Web Applications
+        - Git / Github
+        - Scripts
+        - Installer
+        - Documentation
+        - Assets
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected behaviour
+      description: Describe what should have happened.
+      placeholder: |
+        Explain the expected result.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behaviour
+    attributes:
+      label: Actual behaviour
+      description: Describe what actually happened.
+      placeholder: |
+        Explain the observed result, including unexpected output or errors.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Provide minimal and deterministic steps to reproduce the issue.
+      placeholder: |
+        1. Environment setup
+        2. Execute command or action
+        3. Observe result
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and diagnostics
+      description: Provide relevant logs, stack traces, screenshots, or recordings.
+      placeholder: |
+        Paste logs or attach files here.
+
+        Remove sensitive information before submitting.
+      render: shell
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Specify the affected version, commit, or release.
+      placeholder: |
+        Example: v1.0.0 or commit hash
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment details
+      description: Provide relevant system information.
+      placeholder: |
+        Distro:
+        Window manager / Compositor:
+        Terminal:
+        Shell:
+        Hardware (GPU, etc.):
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severely does this issue impact usage?
+      options:
+        - Low - Minor inconvenience
+        - Medium - Feature partially affected
+        - High - Major functionality affected
+        - Critical - Application unusable
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Provide any other relevant information, references, or possible causes.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues to make sure this isn't a duplicate.
+          required: true
+        - label: I'm using the latest commit on the default branch.
+          required: true

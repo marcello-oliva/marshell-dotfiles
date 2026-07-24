@@ -1,5 +1,5 @@
 [Default Applications]
-# ==== Document Viewer ===================================================
+# ──── Document Viewer ───────────────────────────────────────────────────
 application/x-fictionbook+xml=org.pwmt.zathura-pdf-mupdf.desktop
 application/vnd.ms-xpsdocument=org.pwmt.zathura.desktop
 application/vnd.comicbook+zip=org.pwmt.zathura.desktop
@@ -7,7 +7,7 @@ application/epub+zip=org.pwmt.zathura.desktop
 application/oxps=org.pwmt.zathura.desktop
 application/pdf=org.pwmt.zathura.desktop
 
-# ==== Image Viewer ================================
+# ──── Image Viewer ───────────────────────────────────
 image/x-portable-graymap=satty.desktop
 image/x-portable-bitmap=satty.desktop
 image/x-portable-anymap=satty.desktop
@@ -23,7 +23,7 @@ image/jpeg=satty.desktop
 image/bmp=satty.desktop
 image/png=satty.desktop
 
-# ==== Editor ===========================================
+# ──── Editor ──────────────────────────────────────────────────────────
 application/x-shellscript=dev.zed.Zed.desktop
 inode/x-empty=dev.zed.Zed.desktop
 text/x-pascal=dev.zed.Zed.desktop
@@ -55,7 +55,7 @@ text/x-java=dev.zed.Zed.desktop
 text/x-lua=dev.zed.Zed.desktop
 application/sql=dev.zed.Zed.desktop
 
-# ==== Microsoft Office Suite ==================================================================================
+# ──── Suite Microsoft Office ────────────────────────────────────────────────────────────────────────────────────────
 application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
 application/vnd.oasis.opendocument.presentation-template=libreoffice-impress.desktop
 application/vnd.ms-powerpoint=libreoffice-impress.desktop
@@ -82,10 +82,11 @@ application/vnd.ms-excel.template.macroEnabled.12=libreoffice-calc.desktop
 application/csv=libreoffice-calc.desktop
 text/csv=libreoffice-calc.desktop
 
-# ==== Social Networks ================================
+# ──── Social Media ────────────────────────────
 x-scheme-handler/discord=vesktop.desktop
 
-# ==== Video Player ================================
+
+# ──── Video Player ─────────────────────────────────
 image/gif=mpv.desktop
 video/mpeg=mpv.desktop
 video/vnd.rn-realvideo=mpv.desktop
@@ -141,18 +142,18 @@ audio/x-aiff=mpv.desktop
 video/x-flv=mpv.desktop
 application/x-shorten=mpv.desktop
 
-# ==== Browser =========================================
-text/html=helium.desktop
-x-scheme-handler/http=helium.desktop
-x-scheme-handler/https=helium.desktop
-x-scheme-handler/chrome=helium.desktop;
-application/x-extension-htm=helium.desktop;
-application/x-extension-html=helium.desktop;
-application/x-extension-shtml=helium.desktop;
-application/x-extension-xhtml=helium.desktop;
-application/x-extension-xht=helium.desktop;
-x-scheme-handler/about=helium.desktop
-x-scheme-handler/unknown=helium.desktop
+# ──── Browser ────────────────────────────────────────────────
+text/html=brave-origin.desktop
+x-scheme-handler/http=brave-origin.desktop
+x-scheme-handler/https=brave-origin.desktop
+x-scheme-handler/chrome=brave-origin.desktop;
+application/x-extension-htm=brave-origin.desktop;
+application/x-extension-html=brave-origin.desktop;
+application/x-extension-shtml=brave-origin.desktop;
+application/x-extension-xhtml=brave-origin.desktop;
+application/x-extension-xht=brave-origin.desktop;
+x-scheme-handler/about=brave-origin.desktop
+x-scheme-handler/unknown=brave-origin.desktop
 
-# ==== Navigation =========================================
+# ──── Terminal ───────────────────────────
 inode/directory=kitty.desktop
